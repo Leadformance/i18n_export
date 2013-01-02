@@ -26,7 +26,7 @@ class TestExport < Test::Unit::TestCase
 
   def test_file_created
     assert_equal false, File.file?(tempfile("app.js"))
-    
+
     I18nExport.export!
 
     assert_equal true, File.file?(tempfile("app.js"))

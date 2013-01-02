@@ -28,7 +28,7 @@ private
       f.print "var I18n = I18n || {};\n"
       f.print "I18n.translations = "
       f.print ActiveSupport::JSON.encode(generate_output(definition.filters))
-      f.print ";"
+      f.print ";\n"
     end
   end
 
