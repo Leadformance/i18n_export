@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://github.com/whoward/i18n-export}
 
   s.add_dependency "i18n"
-  s.add_dependency "activesupport", "~> 3.1.0"
+  s.add_dependency "activesupport", "~> 3.0"
   s.add_development_dependency "rake"
   s.add_development_dependency "test-unit"
 end
