@@ -1,6 +1,7 @@
 require File.expand_path("i18n_export/config", File.dirname(__FILE__))
 require "active_support"
 require "fileutils"
+require "lib/i18n_export/railtie" if defined?(Rails)
 
 module I18nExport
 
@@ -62,6 +63,3 @@ private
   end
 
 end
-
-
-require File.expand_path("i18n_export/railtie", File.dirname(__FILE__)) if defined?(Rails) and Rails.version >= "3.0.0"

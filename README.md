@@ -1,6 +1,6 @@
-i18n-export
+I18n Export
 ===========
 
-[![Build Status](https://api.travis-ci.org/cfabianski/i18n-export.png)](https://travis-ci.org/cfabianski/i18n-export)
+[![Build Status](https://api.travis-ci.org/cfabianski/i18n_export.png)](https://travis-ci.org/cfabianski/i18n_export)
 
-Provides exporting functionality for subtrees of I18n translations.  Includes Railtie for Rails 3 integration.
+It's a small library to provide the I18n translations on the Javascript. Includes Railtie for Rails 3 integration.
