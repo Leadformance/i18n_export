@@ -1,7 +1,8 @@
 require File.expand_path("i18n_export/config", File.dirname(__FILE__))
 require File.expand_path("i18n_export/railtie", File.dirname(__FILE__)) if defined?(Rails)
-require "active_support"
 require "fileutils"
+require "json"
+require "i18n"
 
 module I18nExport
 
@@ -28,7 +29,7 @@ private
     open(definition.filename, "w+") do |f|
       f.print "var I18n = I18n || {};\n"
       f.print "I18n.translations = "
-      f.print ActiveSupport::JSON.encode(generate_output(definition.filters))
+      f.print JSON.dump(generate_output(definition.filters))
       f.print ";\n"
     end
   end
