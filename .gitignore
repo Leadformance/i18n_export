@@ -1,2 +1,4 @@
 test/tmp/*
 *.gem
+/.bundle
+/Gemfile.lock

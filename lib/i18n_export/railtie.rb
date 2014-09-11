@@ -1,6 +1,3 @@
-require 'i18n_export'
-require 'rails'
-
 module I18nExport
   class Railtie < ::Rails::Railtie
     rake_tasks do

@@ -1,27 +1,27 @@
-require 'yaml'
+require "yaml"
 
 module I18nExport
   class Config
-    class FileDefinition < Struct.new(:filename, :filters)
-    end
-    
-    def initialize(filename=I18nExport.config_file)
-      # lets make sure the file exists
-      raise Errno::ENOENT unless File.file?(filename)
+    FileDefinition = Struct.new(:filename, :filters)
 
+    def initialize(filename = I18nExport.config_file)
+      raise Errno::ENOENT unless File.file?(filename)
       @filename = filename
     end
 
     def file_definitions
-      (config["translations"] || []).map do |defn|
-        FileDefinition.new(defn["file"], defn["only"])
-      end
+      config.fetch("translations", []).map { |definition|
+        FileDefinition.new(
+          definition.fetch("file"),
+          definition.fetch("only", [])
+        )
+      }
     end
 
-  private
+    private
+
     def config
       @config ||= YAML.load_file(@filename)
     end
-
   end
 end

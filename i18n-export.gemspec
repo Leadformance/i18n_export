@@ -16,7 +16,6 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_dependency "i18n"
-  s.add_dependency "activesupport", "~> 3.1"
   s.add_development_dependency "rake"
-  s.add_development_dependency "test-unit"
+  s.add_development_dependency "rspec"
 end

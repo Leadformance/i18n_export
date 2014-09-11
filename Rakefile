@@ -1,14 +1,5 @@
-require File.expand_path("lib/i18n_export/version", File.dirname(__FILE__))
-require 'rake/testtask'
+require "rspec/core/rake_task"
 
-desc 'Test the i18n_export gem.'
-Rake::TestTask.new(:test) do |t|
-  t.libs << 'lib'
-  t.pattern = 'test/test_*.rb'
-  t.verbose = true
-end
+RSpec::Core::RakeTask.new(:spec)
 
-desc 'Default: run unit tests.'
-task :default => :test
-
-
+task :default => :spec
