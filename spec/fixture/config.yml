@@ -1,12 +1,12 @@
 
 translations:
-  - file: "test/tmp/app.js"
+  - file: "spec/tmp/app.js"
     only:
       - app
 
-  - file: "test/tmp/client.js"
+  - file: "spec/tmp/client.js"
     only:
       - app
       - active_record.attributes
 
-  - file: "test/tmp/all.js"
+  - file: "spec/tmp/all.js"
