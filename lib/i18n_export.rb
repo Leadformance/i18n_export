@@ -1,11 +1,10 @@
-require File.expand_path("i18n_export/config", File.dirname(__FILE__))
-require File.expand_path("i18n_export/railtie", File.dirname(__FILE__)) if defined?(Rails)
+require_relative "i18n_export/config"
+require_relative "i18n_export/railtie" if defined?(Rails)
 require "fileutils"
 require "json"
 require "i18n"
 
 module I18nExport
-
   def self.config_file=(file)
     @@config_file = file
   end
@@ -19,10 +18,9 @@ module I18nExport
   end
 
   def self.export!
-    configuration.file_definitions.each {|definition| export_file(definition) }
+    configuration.file_definitions.each { |definition| export_file(definition) }
   end
 
-private
   def self.export_file(definition)
     FileUtils.mkdir_p File.dirname(definition.filename)
 
@@ -35,21 +33,17 @@ private
   end
 
   def self.generate_output(filters)
-    result = {}
-
-    I18n.available_locales.each do |locale|
-      if filters.nil? or filters.empty?
-        result[locale] = I18n.t('.', :locale => locale)
+    I18n.available_locales.each_with_object({}) do |locale, result|
+      if filters.nil? || filters.empty?
+        result[locale] = I18n.t(".", locale: locale)
       else
         result[locale] ||= {}
 
         filters.each do |filter|
-          insert_data(I18n.t(filter, :locale => locale), filter.split("."), result[locale])
+          insert_data(I18n.t(filter, locale: locale), filter.split("."), result[locale])
         end
       end
     end
-
-    result
   end
 
   def self.insert_data(data, path, result)
@@ -62,5 +56,4 @@ private
       insert_data(data, path, result[component])
     end
   end
-
 end

@@ -13,7 +13,7 @@ describe I18nExport::Config do
       ),
       an_object_having_attributes(
         filename: "spec/tmp/all.js",
-        filters: nil
+        filters: []
       ),
     ]
   end

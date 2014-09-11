@@ -1,4 +1,3 @@
-
 translations:
   - file: "spec/tmp/app.js"
     only:

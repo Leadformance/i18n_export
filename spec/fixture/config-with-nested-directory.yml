@@ -1,4 +1,3 @@
-
 translations:
   - file: "test/tmp/foo/bar/app.js"
     only:
